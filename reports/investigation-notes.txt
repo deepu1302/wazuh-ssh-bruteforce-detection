@@ -1,0 +1,32 @@
+PROJECT: SSH Brute-Force Detection and Investigation
+SIEM: Wazuh 4.14.8
+Manager: Kali Linux
+Target: Metasploitable 2 (192.168.56.103)
+Source: Kali lab interface (192.168.56.104)
+
+DETECTION EVIDENCE
+Rule ID: 2502
+Alert Level: 10
+MITRE ATT&CK: T1110 - Brute Force
+Tactic: Credential Access
+Log program: sshd
+Event: PAM reported additional authentication failures.
+
+INVESTIGATION
+Controlled SSH login failures were generated in an
+isolated lab. Wazuh collected the forwarded SSH logs
+and generated an alert associated with repeated
+authentication failures.
+
+FINDINGS
+The source and target IP addresses were identified.
+The event was mapped to MITRE ATT&CK T1110.
+Additional event correlation is needed to determine
+whether this represents a sustained brute-force attempt.
+
+RECOMMENDATIONS
+Monitor repeated SSH failures, review source addresses,
+use strong passwords, and restrict SSH access.
+
+STATUS
+Detection observed and screenshot evidence saved.
